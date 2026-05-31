@@ -16,9 +16,8 @@ ENV PYTHONUNBUFFERED=1 \
     GIT_PYTHON_REFRESH=quiet
 
 RUN apt-get update && \
-    apt-get install -y wget gnupg2 \
-
-RUN apt-get update && apt-get upgrade -y && apt-get install --no-install-recommends -y \
+    apt-get install -y wget gnupg2 && \
+    apt-get update && apt-get upgrade -y && apt-get install --no-install-recommends -y \
     build-essential \
     curl \
     ffmpeg \
@@ -37,9 +36,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install --no-install-recomme
     python3-dev \
     python3-pip \
     xfonts-75dpi \
-    xfonts-base \
-
-RUN curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && \
+    xfonts-base && \
+    curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && \
     apt-get install -y nodejs && \
     rm nodesource_setup.sh
